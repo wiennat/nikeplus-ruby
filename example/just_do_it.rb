@@ -1,5 +1,6 @@
 #!/bin/env ruby
-
+require 'rubygems'
+require 'builder'
 require '../lib/nikeplus'
 
 def generate_rss(builder, rss_title, rss_link, items)
@@ -19,7 +20,7 @@ def generate_rss(builder, rss_title, rss_link, items)
 end
 
 # Authenticate to access your private Nike+ user info
-me = NikePlus.new('my@email.com', 'secretpassword')
+me = NikePlus::Session.new('my@email.com', 'secretpassword')
 my_runs = me.runs
 builder = Builder::XmlMarkup.new
 
